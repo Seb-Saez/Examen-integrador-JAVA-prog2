@@ -7,5 +7,7 @@ public class ArticuloManufacturadoDetalle extends Base{
 
     private Integer cantidad;
 
-
+    public ArticuloManufacturadoDetalle(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
 }

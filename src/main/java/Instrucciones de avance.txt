@@ -1,0 +1,17 @@
+----- Usemos esto como pizarra para dejarnos mensajes -----
+
+** tarea por hacer
+-- Tarea en proceso
+- Tarea hecha
+
+----------------------------------
+
+ - Por el momento volvimos a hacer el proyecto de 0 con gradle, se crearon todas las clases y enums,
+  y se reestructuro el proyecto
+ ahora tambien hay una carpeta de app donde esta el main ejecutable
+
+ - Tambien se implemento lombok en el proyecto (hecho)
+
+ - Se creo la relacion entre empresa y sucursal, con su respectivo setter (hecho)
+
+ ** Falta hacer la relacion de sucursal y domicilio en adelante (por hacer)

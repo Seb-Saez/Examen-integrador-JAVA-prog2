@@ -1,6 +1,6 @@
 package Entities;
 
-public class Domicilio extends Base {
+public class Domicilio {
     private String calle;
     private int numero;
     private int cp;
