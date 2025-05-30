@@ -1,9 +1,12 @@
 package Entities;
 
+import lombok.Getter;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class Empresa  extends Base {
+    @Getter
     private String nombre;
     private String razonSocial;
     private Integer cuil;
@@ -18,4 +21,5 @@ public class Empresa  extends Base {
     // constructor
     public Empresa() {
     }
+
 }
