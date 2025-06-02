@@ -1,13 +1,24 @@
 package Entities;
 
-import java.util.ArrayList;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class Pais extends Base{
+
     private String nombre;
-    private ArrayList<Provincia> provincias;
+
 
     public Pais(String nombre) {
         this.nombre = nombre;
-        this.provincias = new ArrayList<>();
+
+    }
+
+    @Override
+    public String toString(){
+        return nombre;
     }
 }

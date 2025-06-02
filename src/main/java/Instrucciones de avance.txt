@@ -15,4 +15,6 @@
  - Se creo la relacion entre empresa y sucursal, con su respectivo setter (hecho)
 
  - Se creo relacion entre Sucursal y domicilio (hecho)
- ** Falta hacer la relacion de domicilio y localidad en adelante (por hacer)
+ - Se crea relacion entre domicilio, localidad, provincia y pais(hecho)
+
+ ** Seguir con la relacion entre sucursal y promocion y promocion con articulo

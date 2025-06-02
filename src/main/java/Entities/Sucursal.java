@@ -21,11 +21,10 @@ public class Sucursal extends Base {
     private Domicilio domicilio;
 
     // constructor de sucursal, no lleva empresa porque debe hacerse desde empresa con setSucursal para mantener la relacion bidireccional
-    public Sucursal(String nombre, LocalTime horarioApertura, LocalTime horarioCierre, Domicilio domicilio) {
+    public Sucursal(String nombre, LocalTime horarioApertura, LocalTime horarioCierre) {
         this.nombre = nombre;
         this.horarioApertura = horarioApertura;
         this.horarioCierre = horarioCierre;
-        this.domicilio = domicilio;
     }
 
     @Override

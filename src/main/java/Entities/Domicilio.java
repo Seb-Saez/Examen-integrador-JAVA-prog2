@@ -14,10 +14,15 @@ public class Domicilio {
     private int cp;
     private Localidad localidad;
 
-    public Domicilio(String calle, Integer numero, Integer cp, Localidad localidad) {
+    public Domicilio(String calle, Integer numero, Integer cp) {
         this.calle = calle;
         this.numero = numero;
         this.cp = cp;
-        this.localidad = localidad;
+    }
+
+    @Override
+    public String toString() {
+        return calle + " " + numero + " (CP: " + cp + ") - " +
+                (localidad != null ? localidad.getNombre() : "sin localidad");
     }
 }
