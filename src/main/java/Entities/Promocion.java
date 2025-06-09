@@ -37,6 +37,7 @@ public class Promocion extends Base {
         this.tipoPromocion = tipoPromocion;
     }
 
+
     @Override
     public String toString() {
         return "Promocion{" +

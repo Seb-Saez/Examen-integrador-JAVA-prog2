@@ -22,6 +22,7 @@ Parametros Empresa: Empresa(String nombre, String razonSocial, Integer cuil)
 - Domicilio y  sucursal:
 Hay que instanciar un domicilio antes, porque hay que mandarlo como parametro al constructor
 
-Domicilio: Domicilio(String calle, Integer numero, Integer cp)
+Domicilio: Domicilio(String calle, Integer numero, Integer cp) instanciar antes que Sucursal
 
-Sucursal: Sucursal(String nombre, LocalTime horarioApertura, LocalTime horarioCierre)
+Sucursal: Sucursal(String nombre, LocalTime horarioApertura, LocalTime horarioCierre) Luego agregar un Domiciliocon un Setter
+

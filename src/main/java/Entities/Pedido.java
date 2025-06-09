@@ -1,5 +1,6 @@
 package Entities;
 
+import Enums.Estado;
 import Enums.FormaPago;
 import Enums.TipoEnvio;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Getter
@@ -19,20 +21,32 @@ public class Pedido extends Base {
     private LocalTime horaEstimadaFinalizacion;
     private Double total;
     private Double totalCosto;
-    private LocalDate FechaPedido;
+    private Estado estado;
     private TipoEnvio tipoEnvio;
     private FormaPago formaPago;
+    private LocalDate fechaPedido;
     private Domicilio domicilio;
+    private Sucursal sucursal;
     private Factura factura;
-    private Set<DetallePedido> detallePedidos;
+    private Set<DetallePedido> detallePedidos = new LinkedHashSet<>();
 
-    public Pedido(LocalTime horaEstimadaFinalizacion, Double total, Double totalCosto, LocalDate fechaPedido, TipoEnvio tipoEnvio, FormaPago formaPago) {
+
+    public Pedido(LocalTime horaEstimadaFinalizacion, Double total, Double totalCosto, Estado estado, TipoEnvio tipoEnvio, FormaPago formaPago, LocalDate fechaPedido) {
         this.horaEstimadaFinalizacion = horaEstimadaFinalizacion;
         this.total = total;
         this.totalCosto = totalCosto;
-        FechaPedido = fechaPedido;
+        this.estado = estado;
         this.tipoEnvio = tipoEnvio;
         this.formaPago = formaPago;
-        this.detallePedidos = new HashSet<>();
+        this.fechaPedido = fechaPedido;
+    }
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "fecha=" + fechaPedido +
+                ", total=" + total +
+                ", estado=" + estado +
+                ", sucursal=" + (sucursal != null ? sucursal.getNombre() : "sin sucursal") +
+                '}';
     }
 }

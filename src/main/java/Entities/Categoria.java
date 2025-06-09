@@ -22,4 +22,9 @@ public class Categoria extends Base {
         this.denominacion = denominacion;
         this.categoriaPadre = categoriaPadre;
     }
+
+    @Override
+    public String toString() {
+        return denominacion + (categoriaPadre != null ? " (sub de: " + categoriaPadre.getDenominacion() + ")" : "");
+    }
 }
