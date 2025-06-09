@@ -5,6 +5,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -19,6 +22,8 @@ public class Sucursal extends Base {
     private LocalTime horarioCierre;
     private Empresa empresa;
     private Domicilio domicilio;
+    private LinkedHashSet<Promocion> promociones = new LinkedHashSet<>();
+    private LinkedHashSet<Categoria> categorias = new LinkedHashSet<>();
 
     // constructor de sucursal, no lleva empresa porque debe hacerse desde empresa con setSucursal para mantener la relacion bidireccional
     public Sucursal(String nombre, LocalTime horarioApertura, LocalTime horarioCierre) {
