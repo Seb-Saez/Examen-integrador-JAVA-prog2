@@ -123,6 +123,7 @@ public class Main{
 
 
         Sucursal sucursalCapital = Sucursal.builder()
+                .id(1001L)
                 .nombre("Buen Sabor Capital")
                 .horarioApertura(LocalTime.of(10,0))
                 .horarioCierre(LocalTime.of(18,0))
@@ -132,6 +133,7 @@ public class Main{
 
 
         Sucursal sucursalGodoyCruz = Sucursal.builder()
+                .id(1002L)
                 .nombre("Buen Sabor Godoy cruz")
                 .horarioApertura(LocalTime.of(10,0))
                 .horarioCierre(LocalTime.of(18,0))
