@@ -1,6 +1,8 @@
 package Entities;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -10,6 +12,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @SuperBuilder
 
@@ -21,8 +24,10 @@ public class Cliente extends Base {
     private LocalDate fechaNacimiento;
     private Usuario usuario;
     private Imagen imagen;
+    @Builder.Default
     private Set<Pedido> pedidos = new LinkedHashSet<>();
-    private Set<Domicilio> domicilio = new LinkedHashSet<>();
+    @Builder.Default
+    private Set<Domicilio> domicilios = new LinkedHashSet<>();
 
     public Cliente(String nombre, String apellido, String telefono, String email, LocalDate fechaNacimiento) {
         this.nombre = nombre;
@@ -30,5 +35,15 @@ public class Cliente extends Base {
         this.telefono = telefono;
         this.email = email;
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    // metodo p agregar pedidos
+    public void agregarPedido(Pedido pedido){
+        pedidos.add(pedido);
+    }
+
+    // metodo p agregar domicilios
+    public void agregarDomicilio(Domicilio domicilio){
+        domicilios.add(domicilio);
     }
 }

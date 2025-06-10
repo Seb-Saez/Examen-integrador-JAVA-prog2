@@ -1,7 +1,9 @@
 package Entities;
 
 import Enums.TipoPromocion;
+import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -11,6 +13,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @SuperBuilder
 
@@ -24,7 +27,9 @@ public class Promocion extends Base {
     private String descripcionDescuento;
     private Double precioPromocional;
     private TipoPromocion tipoPromocion;
+    @Builder.Default
     private Set<Imagen> imagenes = new LinkedHashSet<>();
+    @Builder.Default
     private Set<Articulo> articulos = new LinkedHashSet<>();
 
     public Promocion(String denominacion, LocalDate fechaDesde, LocalDate fechaHasta, LocalTime horaDesde, LocalTime horaHasta, String descripcionDescuento, Double precioPromocional, TipoPromocion tipoPromocion) {

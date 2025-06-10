@@ -1,6 +1,8 @@
 package Entities;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -8,6 +10,7 @@ import java.time.LocalTime;
 import java.util.LinkedHashSet;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @SuperBuilder
 // cuando ponemos arriba de la clase esta notacion de lombok, se aplican a todos los campos
@@ -22,7 +25,9 @@ public class Sucursal extends Base {
     private LocalTime horarioCierre;
     private Empresa empresa;
     private Domicilio domicilio;
+    @Builder.Default
     private LinkedHashSet<Promocion> promociones = new LinkedHashSet<>();
+    @Builder.Default
     private LinkedHashSet<Categoria> categorias = new LinkedHashSet<>();
 
     // constructor de sucursal, no lleva empresa porque debe hacerse desde empresa con setSucursal para mantener la relacion bidireccional y no romper el encapsulamiento

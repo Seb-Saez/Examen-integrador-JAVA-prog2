@@ -3,7 +3,9 @@ package Entities;
 import Enums.Estado;
 import Enums.FormaPago;
 import Enums.TipoEnvio;
+import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import java.time.LocalDate;
@@ -12,6 +14,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @SuperBuilder
 
@@ -26,6 +29,7 @@ public class Pedido extends Base {
     private Domicilio domicilio;
     private Sucursal sucursal;
     private Factura factura;
+    @Builder.Default
     private Set<DetallePedido> detallePedidos = new LinkedHashSet<>();
 
 
