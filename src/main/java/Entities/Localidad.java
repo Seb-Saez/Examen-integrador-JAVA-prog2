@@ -1,14 +1,14 @@
 package Entities;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@SuperBuilder
 public class Localidad extends Base {
 
     private String nombre;
@@ -17,9 +17,5 @@ public class Localidad extends Base {
     public Localidad(String nombre, Provincia provincia) {
         this.nombre = nombre;
         this.provincia = provincia;
-    }
-    @Override
-    public String toString() {
-        return nombre + ", " + (provincia != null ? provincia.getNombre() : "sin provincia");
     }
 }

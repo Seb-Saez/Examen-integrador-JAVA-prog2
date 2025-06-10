@@ -1,12 +1,14 @@
 package Entities;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@SuperBuilder
 public class Pais extends Base{
 
     private String nombre;
@@ -17,8 +19,4 @@ public class Pais extends Base{
 
     }
 
-    @Override
-    public String toString(){
-        return nombre;
-    }
 }
