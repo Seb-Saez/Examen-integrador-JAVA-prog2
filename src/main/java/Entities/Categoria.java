@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Getter
@@ -16,7 +16,7 @@ public class Categoria extends Base {
     private String denominacion;
     private Categoria categoriaPadre;
     private Set<Categoria> subcategoria;
-    private HashSet<Articulo> articulos;
+    private LinkedHashSet<Articulo> articulos = new LinkedHashSet<>();
 
     public Categoria(String denominacion, Categoria categoriaPadre) {
         this.denominacion = denominacion;
@@ -25,6 +25,11 @@ public class Categoria extends Base {
 
     @Override
     public String toString() {
-        return denominacion + (categoriaPadre != null ? " (sub de: " + categoriaPadre.getDenominacion() + ")" : "");
+        return "Categoria{" +
+                "denominacion='" + denominacion + '\'' +
+                ", categoriaPadre=" + categoriaPadre +
+                ", subcategoria=" + subcategoria +
+                ", articulos=" + articulos +
+                '}';
     }
 }

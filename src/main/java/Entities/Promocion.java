@@ -8,6 +8,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Getter
@@ -19,24 +20,28 @@ public class Promocion extends Base {
     private String denominacion;
     private LocalDate fechaDesde;
     private LocalDate fechaHasta;
-    private LocalTime HoraDesde;
-    private LocalTime HoraHasta;
+    private LocalTime horaDesde;
+    private LocalTime horaHasta;
     private String descripcionDescuento;
     private Double precioPromocional;
     private TipoPromocion tipoPromocion;
-    private Set<Imagen> imagenes = new HashSet<>();
+    private Set<Imagen> imagenes = new LinkedHashSet<>();
+    private Set<Articulo> articulos = new LinkedHashSet<>();
 
     public Promocion(String denominacion, LocalDate fechaDesde, LocalDate fechaHasta, LocalTime horaDesde, LocalTime horaHasta, String descripcionDescuento, Double precioPromocional, TipoPromocion tipoPromocion) {
         this.denominacion = denominacion;
         this.fechaDesde = fechaDesde;
         this.fechaHasta = fechaHasta;
-        HoraDesde = horaDesde;
-        HoraHasta = horaHasta;
+        this.horaDesde = horaDesde;
+        this.horaHasta = horaHasta;
         this.descripcionDescuento = descripcionDescuento;
         this.precioPromocional = precioPromocional;
         this.tipoPromocion = tipoPromocion;
     }
 
+    public void agregarArticulo(Articulo articulo) {
+        articulos.add(articulo);
+    }
 
     @Override
     public String toString() {
@@ -44,8 +49,8 @@ public class Promocion extends Base {
                 "denominacion='" + denominacion + '\'' +
                 ", fechaDesde=" + fechaDesde +
                 ", fechaHasta=" + fechaHasta +
-                ", HoraDesde=" + HoraDesde +
-                ", HoraHasta=" + HoraHasta +
+                ", HoraDesde=" + horaDesde +
+                ", HoraHasta=" + horaHasta +
                 ", descripcionDescuento='" + descripcionDescuento + '\'' +
                 ", precioPromocional=" + precioPromocional +
                 ", tipoPromocion=" + tipoPromocion +

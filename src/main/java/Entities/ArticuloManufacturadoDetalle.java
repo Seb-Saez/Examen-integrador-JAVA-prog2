@@ -13,7 +13,18 @@ import java.util.Set;
 public class ArticuloManufacturadoDetalle extends Base{
 
     private Integer cantidad;
-    private ArticuloInsumo articuloinsumo;
+    private ArticuloInsumo articuloInsumo;
 
+    public ArticuloManufacturadoDetalle(Integer cantidad, ArticuloInsumo articuloInsumo) {
+        this.cantidad = cantidad;
+        this.articuloInsumo = articuloInsumo;
+    }
 
+    @Override
+    public String toString() {
+        return "ArticuloManufacturadoDetalle{" +
+                "cantidad=" + cantidad +
+                ", articuloinsumo=" + articuloInsumo +
+                '}';
+    }
 }

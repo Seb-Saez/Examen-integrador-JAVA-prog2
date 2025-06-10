@@ -17,4 +17,13 @@ public class DetallePedido extends Base {
         this.cantidad = cantidad;
         this.subTotal = subTotal;
     }
+
+    @Override
+    public String toString() {
+        return "DetallePedido{" +
+                "cantidad=" + cantidad +
+                ", subTotal=" + subTotal +
+                ", articulo=" + articulo +
+                '}';
+    }
 }
