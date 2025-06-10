@@ -1,25 +1,17 @@
 package Entities;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-public class Provincia {
+@SuperBuilder
+public class Provincia extends Base {
 
     private String nombre;
     private Pais pais;
 
-    public Provincia(Pais pais, String nombre) {
-        this.pais = pais;
-        this.nombre = nombre;
-    }
 
-    @Override
-    public String toString() {
-        return nombre + ", " + (pais != null ? pais.getNombre() : "sin país");
-    }
 }

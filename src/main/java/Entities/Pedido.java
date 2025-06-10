@@ -3,19 +3,17 @@ package Entities;
 import Enums.Estado;
 import Enums.FormaPago;
 import Enums.TipoEnvio;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import lombok.experimental.SuperBuilder;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@SuperBuilder
 
 public class Pedido extends Base {
     private LocalTime horaEstimadaFinalizacion;
@@ -47,15 +45,4 @@ public class Pedido extends Base {
         }
     }
 
-
-
-    @Override
-    public String toString() {
-        return "Pedido{" +
-                "fecha=" + fechaPedido +
-                ", total=" + total +
-                ", estado=" + estado +
-                ", sucursal=" + (sucursal != null ? sucursal.getNombre() : "sin sucursal") +
-                '}';
-    }
 }
