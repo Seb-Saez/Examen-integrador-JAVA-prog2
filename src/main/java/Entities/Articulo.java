@@ -1,15 +1,15 @@
 package Entities;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@SuperBuilder
 
 public abstract class Articulo extends Base{
     protected String denominacion;
@@ -23,13 +23,4 @@ public abstract class Articulo extends Base{
         this.denominacion = denominacion;
     }
 
-    @Override
-    public String toString() {
-        return "Articulo{" +
-                "denominacion='" + denominacion + '\'' +
-                ", precioVenta=" + precioVenta +
-                ", unidadMedida=" + unidadMedida +
-                ", imagenes=" + imagenes +
-                '}';
-    }
 }

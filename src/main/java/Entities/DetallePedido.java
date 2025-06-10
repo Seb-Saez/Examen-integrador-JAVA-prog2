@@ -1,11 +1,9 @@
 package Entities;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 
 public class DetallePedido extends Base {
@@ -16,14 +14,5 @@ public class DetallePedido extends Base {
     public DetallePedido(Integer cantidad, Double subTotal) {
         this.cantidad = cantidad;
         this.subTotal = subTotal;
-    }
-
-    @Override
-    public String toString() {
-        return "DetallePedido{" +
-                "cantidad=" + cantidad +
-                ", subTotal=" + subTotal +
-                ", articulo=" + articulo +
-                '}';
     }
 }

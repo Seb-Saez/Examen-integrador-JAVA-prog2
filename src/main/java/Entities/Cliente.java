@@ -1,17 +1,17 @@
 package Entities;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.experimental.SuperBuilder;
+
 
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@SuperBuilder
 
 public class Cliente extends Base {
     private String nombre;
@@ -30,20 +30,5 @@ public class Cliente extends Base {
         this.telefono = telefono;
         this.email = email;
         this.fechaNacimiento = fechaNacimiento;
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", email='" + email + '\'' +
-                ", fechaNacimiento=" + fechaNacimiento +
-                ", usuario=" + usuario +
-                ", imagen=" + imagen +
-                ", pedidos=" + pedidos +
-                ", domicilio=" + domicilio +
-                '}';
     }
 }

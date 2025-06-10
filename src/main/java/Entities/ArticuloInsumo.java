@@ -1,14 +1,9 @@
 package Entities;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Set;
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 
 public class ArticuloInsumo extends Articulo {
@@ -26,14 +21,4 @@ public class ArticuloInsumo extends Articulo {
         this.esParaElaborar = esParaElaborar;
     }
 
-    @Override
-    public String toString() {
-        return "ArticuloInsumo{" +
-                "precioCompra=" + precioCompra +
-                ", stockActual=" + stockActual +
-                ", stockMaximo=" + stockMaximo +
-                ", esParaElaborar=" + esParaElaborar; //+
-                //", detalles=" + detalles +
-               // '}';
-    }
 }

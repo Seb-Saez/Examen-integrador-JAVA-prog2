@@ -1,19 +1,18 @@
 package Entities;
 
 import Enums.TipoPromocion;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@SuperBuilder
 
 public class Promocion extends Base {
 
@@ -45,20 +44,5 @@ public class Promocion extends Base {
 
     public void agregarImagen(Imagen imagen) {
         imagenes.add(imagen);
-    }
-
-
-    @Override
-    public String toString() {
-        return "Promocion{" +
-                "denominacion='" + denominacion + '\'' +
-                ", fechaDesde=" + fechaDesde +
-                ", fechaHasta=" + fechaHasta +
-                ", HoraDesde=" + horaDesde +
-                ", HoraHasta=" + horaHasta +
-                ", descripcionDescuento='" + descripcionDescuento + '\'' +
-                ", precioPromocional=" + precioPromocional +
-                ", tipoPromocion=" + tipoPromocion +
-                '}';
     }
 }

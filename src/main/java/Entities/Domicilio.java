@@ -1,13 +1,14 @@
 package Entities;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-public class Domicilio {
+@SuperBuilder
+
+public class Domicilio extends Base {
 
     private String calle;
     private int numero;
@@ -18,11 +19,5 @@ public class Domicilio {
         this.calle = calle;
         this.numero = numero;
         this.cp = cp;
-    }
-
-    @Override
-    public String toString() {
-        return calle + " " + numero + " (CP: " + cp + ") - " +
-                (localidad != null ? localidad.getNombre() : "sin localidad");
     }
 }

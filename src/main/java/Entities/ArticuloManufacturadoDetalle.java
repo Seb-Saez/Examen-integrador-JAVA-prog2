@@ -1,14 +1,13 @@
 package Entities;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
-import java.util.HashSet;
-import java.util.Set;
-@Getter
-@Setter
+
+@Data
 @NoArgsConstructor
+@SuperBuilder
 
 public class ArticuloManufacturadoDetalle extends Base{
 
@@ -18,13 +17,5 @@ public class ArticuloManufacturadoDetalle extends Base{
     public ArticuloManufacturadoDetalle(Integer cantidad, ArticuloInsumo articuloInsumo) {
         this.cantidad = cantidad;
         this.articuloInsumo = articuloInsumo;
-    }
-
-    @Override
-    public String toString() {
-        return "ArticuloManufacturadoDetalle{" +
-                "cantidad=" + cantidad +
-                ", articuloinsumo=" + articuloInsumo +
-                '}';
     }
 }

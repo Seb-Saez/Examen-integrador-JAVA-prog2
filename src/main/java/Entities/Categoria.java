@@ -1,15 +1,17 @@
 package Entities;
 
-import lombok.Getter;
+
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@SuperBuilder
 
 public class Categoria extends Base {
 
@@ -21,15 +23,5 @@ public class Categoria extends Base {
     public Categoria(String denominacion, Categoria categoriaPadre) {
         this.denominacion = denominacion;
         this.categoriaPadre = categoriaPadre;
-    }
-
-    @Override
-    public String toString() {
-        return "Categoria{" +
-                "denominacion='" + denominacion + '\'' +
-                ", categoriaPadre=" + categoriaPadre +
-                ", subcategoria=" + subcategoria +
-                ", articulos=" + articulos +
-                '}';
     }
 }
