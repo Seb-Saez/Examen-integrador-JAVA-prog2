@@ -1,9 +1,8 @@
 package App;
 
-import Entities.Domicilio;
-import Entities.Localidad;
-import Entities.Pais;
-import Entities.Provincia;
+import Entities.*;
+
+import java.time.LocalTime;
 
 public class Main{
     public static void main(String[] args) {
@@ -56,17 +55,103 @@ public class Main{
 
         // instancia Domiclios
 
+        //domicilio 1 clientes
         Domicilio domicilio1 = Domicilio.builder()
                 .calle("Av. Siempreviva")
                 .numero(123)
                 .cp(5509)
                 .build();
 
+        domicilio1.setLocalidad(localidad1); // maipu
+
+        // domicilio 2 clientes
         Domicilio domicilio2 = Domicilio.builder()
-                .calle("")
+                .calle("San Martin")
                 .numero(1954)
                 .cp(5506)
                 .build();
+
+        domicilio2.setLocalidad(localidad2); // capital
+
+
+        // domicilio sucursal  1
+        Domicilio domiciliosuc1 = Domicilio.builder()
+                .calle("San Fernando")
+                .numero(1258)
+                .cp(5507)
+                .build();
+
+        domiciliosuc1.setLocalidad(localidad1); // maipu
+
+        // domicilio sucursal 2
+        Domicilio domiciliosuc2 = Domicilio.builder()
+                .calle("Belgrano")
+                .numero(937)
+                .cp(5503)
+                .build();
+
+        domiciliosuc2.setLocalidad(localidad2); // capital
+
+        // domicilio sucursal 3
+        Domicilio domiciliosuc3 = Domicilio.builder()
+                .calle("Belgrano")
+                .numero(631)
+                .cp(5504)
+                .build();
+
+        domiciliosuc3.setLocalidad(localidad3); // godoy cruz
+
+        System.out.println("El domicilio 1 es en calle: " + domicilio1.getCalle() + " al numero: " + domicilio1.getNumero() + " y esta ubicado en la ciudad: " + domicilio1.getLocalidad().getNombre() + " en la provincia de " + domicilio1.getLocalidad().getProvincia().getNombre() + " y  en el pais " + domicilio1.getLocalidad().getProvincia().getPais().getNombre());
+
+        // Instanciamos una empresa
+
+        Empresa empresa1 = Empresa.builder()
+                .nombre("Buen Sabor")
+                .razonSocial("SA")
+                .cuil(123456789)
+                .build();
+
+        // instanciamos unas sucursales
+
+        Sucursal sucursalMaipu = Sucursal.builder()
+                .nombre("Buen Sabor Maipu")
+                .horarioApertura(LocalTime.of(10,0))
+                .horarioCierre(LocalTime.of(18,0))
+                .build();
+
+        sucursalMaipu.setDomicilio(domiciliosuc1);
+
+
+        Sucursal sucursalCapital = Sucursal.builder()
+                .nombre("Buen Sabor Capital")
+                .horarioApertura(LocalTime.of(10,0))
+                .horarioCierre(LocalTime.of(18,0))
+                .build();
+
+        sucursalCapital.setDomicilio(domiciliosuc2);
+
+
+        Sucursal sucursalGodoyCruz = Sucursal.builder()
+                .nombre("Buen Sabor Godoy cruz")
+                .horarioApertura(LocalTime.of(10,0))
+                .horarioCierre(LocalTime.of(18,0))
+                .build();
+
+        sucursalGodoyCruz.setDomicilio(domiciliosuc3);
+
+        // agregamos las sucursales a la empresa
+        empresa1.agregarSucursal(sucursalMaipu);
+        empresa1.agregarSucursal(sucursalCapital);
+
+        // Mostramos que funcionan los metodos
+        System.out.println(sucursalCapital);
+        System.out.println("La sucursal de capital pertenece a la empresa: " + sucursalCapital.getEmpresa().getNombre());
+        System.out.println(empresa1);
+
+
+
+        System.out.println("------ PRUEBA -------");
+
 
 
 

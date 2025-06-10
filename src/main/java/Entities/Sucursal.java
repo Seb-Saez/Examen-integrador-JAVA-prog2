@@ -1,16 +1,15 @@
 package Entities;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalTime;
 import java.util.LinkedHashSet;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
+// Aca tuvimos que poner estos parametros, porque entraba en una referencia recursiva en el toString de empresa y sucursal
+@EqualsAndHashCode(callSuper = false, exclude = "empresa")
+@ToString(exclude = "empresa")
 @NoArgsConstructor
 @SuperBuilder
 // cuando ponemos arriba de la clase esta notacion de lombok, se aplican a todos los campos
@@ -36,6 +35,8 @@ public class Sucursal extends Base {
         this.horarioApertura = horarioApertura;
         this.horarioCierre = horarioCierre;
     }
+
+
 
     public void agregarCategoria(Categoria categoria) {
         categorias.add(categoria);
