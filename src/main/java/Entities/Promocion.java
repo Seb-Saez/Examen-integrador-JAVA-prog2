@@ -43,6 +43,11 @@ public class Promocion extends Base {
         articulos.add(articulo);
     }
 
+    public void agregarImagen(Imagen imagen) {
+        imagenes.add(imagen);
+    }
+
+
     @Override
     public String toString() {
         return "Promocion{" +

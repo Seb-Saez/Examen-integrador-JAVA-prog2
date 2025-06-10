@@ -40,6 +40,15 @@ public class Pedido extends Base {
         this.formaPago = formaPago;
         this.fechaPedido = fechaPedido;
     }
+
+    public void agregarDetalle(DetallePedido detalle) {
+        if (detalle != null) {
+            detallePedidos.add(detalle);
+        }
+    }
+
+
+
     @Override
     public String toString() {
         return "Pedido{" +
