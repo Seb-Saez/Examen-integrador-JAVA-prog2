@@ -1,7 +1,12 @@
 package App;
 
 import Entities.*;
+import Enums.Estado;
+import Enums.FormaPago;
+import Enums.TipoEnvio;
+import Enums.TipoPromocion;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Main{
@@ -151,8 +156,217 @@ public class Main{
         System.out.println(empresa1);
 
 
+        // instanciamos imagenes
 
-        System.out.println("------ PRUEBA -------");
+        Imagen img1 = Imagen.builder()
+                .denominacion("promo_muzzarella_2x1.jpg")
+                .build();
+
+        Imagen img2 = Imagen.builder()
+                .denominacion("happy_hour_empanadas.jpg")
+                .build();
+
+        Imagen img3 = Imagen.builder()
+                .denominacion("nueva_promo_invierno.jpg")
+                .build();
+
+        // instanciamos promociones
+
+        Promocion promo1 = Promocion.builder()
+                .denominacion("Promocion de 2 muzzas + coca cola 1L")
+                .fechaDesde(LocalDate.of(2025, 6, 10))
+                .fechaHasta(LocalDate.of(2025, 8, 10))
+                .horaDesde(LocalTime.of(10, 0))
+                .horaHasta(LocalTime.of(22, 0))
+                .descripcionDescuento("Se rebaja l precio de la 2da muzzarella")
+                .precioPromocional(1000.0)
+                .tipoPromocion(TipoPromocion.PROMOCION1)
+                .build();
+
+        Promocion promo2 = Promocion.builder()
+                .denominacion("Happy Hour 3x2 en empanadas")
+                .fechaDesde(LocalDate.of(2025, 6, 15))
+                .fechaHasta(LocalDate.of(2025, 7, 15))
+                .horaDesde(LocalTime.of(17, 0))
+                .horaHasta(LocalTime.of(20, 0))
+                .descripcionDescuento("Llevás 3 empanadas y pagás 2")
+                .precioPromocional(1200.0)
+                .tipoPromocion(TipoPromocion.HAPPYHOUR)
+                .build();
+
+
+
+
+
+        // instancias de articulo
+
+        UnidadMedida litro = UnidadMedida.builder()
+                .denominacion("Litro")
+                .build();
+
+        UnidadMedida kilo = UnidadMedida.builder()
+                .denominacion("Kilo")
+                .build();
+
+
+        // ArticuloInsumo
+
+        ArticuloInsumo insumo1 = ArticuloInsumo.builder()
+                .denominacion("Harina")
+                .precioVenta(150.0)
+                .precioCompra(100.0)
+                .stockActual(50)
+                .stockMaximo(200)
+                .esParaElaborar(true)
+                .build();
+
+        ArticuloInsumo insumo2 = ArticuloInsumo.builder()
+                .denominacion("Azúcar")
+                .precioVenta(120.0)
+                .precioCompra(90.0)
+                .stockActual(70)
+                .stockMaximo(150)
+                .esParaElaborar(true)
+                .build();
+
+        ArticuloInsumo insumo3 = ArticuloInsumo.builder()
+                .denominacion("Levadura")
+                .precioVenta(200.0)
+                .precioCompra(150.0)
+                .stockActual(30)
+                .stockMaximo(100)
+                .esParaElaborar(true)
+                .build();
+
+        // producto manufacturado detalle
+
+        ArticuloManufacturadoDetalle detalleHarina = ArticuloManufacturadoDetalle.builder()
+                .cantidad(2)
+                .articuloInsumo(insumo1)
+                .build();
+
+        // articulo manufacturado
+
+
+        ArticuloManufacturado articulo1 = ArticuloManufacturado.builder()
+                .id(101L)
+                .denominacion("Pizza Margarita")
+                .precioVenta(1500.0)
+                .descripcion("Pizza clásica con tomate, mozzarella y albahaca")
+                .tiempoEstimadoMinutos(5)
+                .preparacion("Hornear a 350 grados durante 5 minutos")
+                .build();
+
+        ArticuloManufacturado articulo2 = ArticuloManufacturado.builder()
+                .id(102L)
+                .denominacion("Empanada de carne")
+                .precioVenta(200.0)
+                .descripcion("Empanada rellena de carne molida, aceituna y huevito")
+                .tiempoEstimadoMinutos(20)
+                .preparacion("Cocinar en horno hasta dorar")
+                .build();
+
+        ArticuloManufacturado articulo3 = ArticuloManufacturado.builder()
+                .id(103L)
+                .denominacion("Tarta de pollo")
+                .precioVenta(1200.0)
+                .descripcion("Tarta salada rellena de pollo, cebolla y crema")
+                .tiempoEstimadoMinutos(40)
+                .preparacion("Hornear hasta que la masa esté dorada")
+                .build();
+
+
+
+        // usamos el metodo para agregar detalle
+
+        articulo1.agregarDetale(detalleHarina);
+
+
+        // categorias
+
+        // Categoría padre
+        Categoria categoriaAlimentos = Categoria.builder()
+                .denominacion("Alimentos")
+                .build();
+
+        // Subcategoría con categoría padre
+        Categoria categoriaBebidas = Categoria.builder()
+                .denominacion("Bebidas")
+                .categoriaPadre(categoriaAlimentos)
+                .build();
+
+        // Subcategoría con categoría padre
+        Categoria categoriaSnacks = Categoria.builder()
+                .denominacion("Snacks")
+                .categoriaPadre(categoriaAlimentos)
+                .build();
+
+
+
+
+
+        // PEDIDOS
+
+        // detalle pedidos
+
+        DetallePedido detalle1 = DetallePedido.builder()
+                .id(1L)
+                .cantidad(2)
+                .subTotal(800.0)
+                .articulo(articulo1)
+                .build();
+
+        // pedidos
+
+        Pedido pedidoEjemplo = Pedido.builder()
+                .horaEstimadaFinalizacion(LocalTime.of(12, 30))
+                .total(1500.0)
+                .totalCosto(1200.0)
+                .estado(Estado.PREPARACION)
+                .tipoEnvio(TipoEnvio.TAKEAWAY)
+                .formaPago(FormaPago.EFECTIVO)
+                .fechaPedido(LocalDate.now())
+                .domicilio(domicilio1)
+                .sucursal(sucursalCapital)
+                //.factura(facturaEjemplo)
+                //.detallePedidos(Set.of(detallePedido1, detallePedido2)) // poner aca el detalle del pedido
+                .build();
+
+
+        // factura
+
+        Factura factura1 = Factura.builder()
+                .fechaFacturacion(LocalDate.of(2025, 6, 10))
+                .mpPaymentId(123456)
+                .mpMerchantOrderId(123)
+                .mpPreferenceId("pref-abc-123")
+                .mpPaymentType("credit_card")
+                .totalVenta(1500.0)
+                .formaPago(FormaPago.MERCADOPAGO)
+                .build();
+
+
+        // usuario
+        Usuario usuario1 = Usuario.builder()
+                .id(1234L)
+                .authOId("abc123")
+                .username("seba.saez")
+                .build();
+
+
+        // cliente
+
+        Cliente cliente = Cliente.builder()
+                .id(100L)
+                .nombre("Sebastian")
+                .apellido("Saez")
+                .telefono("2611234567")
+                .email("seba.saez@gmail.com")
+                .fechaNacimiento(LocalDate.of(1995, 5, 20))
+                .usuario(usuario1)
+                .imagen(img1)
+                .build();
+
 
 
 
